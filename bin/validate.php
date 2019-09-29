@@ -3,24 +3,18 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Raigu\PersonalCodeValidation;
 
-if ($argc !== 2) {
-    echo "Estonian personal identification code validation.\n";
-    echo "Usage: php ./bin/validation.php <id>\n";
-    exit(1);
-} else {
-    $id = $argv[1];
-}
+while ($code = fgets(STDIN)) {
+    $code = trim($code);
 
-echo "{$id}...";
+    echo "{$code}...";
 
-$validation = PersonalCodeValidation::create(
-    $id
-);
+    $validation = PersonalCodeValidation::create(
+        $code
+    );
 
-if ($validation->valid()) {
-    echo "OK\n";
-    exit(0);
-} else {
-    echo "Invalid!\n";
-    exit(1);
+    if ($validation->valid()) {
+        echo "OK\n";
+    } else {
+        echo "Invalid!\n";
+    }
 }
