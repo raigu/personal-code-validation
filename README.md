@@ -11,7 +11,7 @@ be tested if there is any doubt.
 ## Install 
 
 ````bash
-composer require raigu/personal-code-validation
+$ composer require raigu/personal-code-validation
 ````
 
 ## Usage 
