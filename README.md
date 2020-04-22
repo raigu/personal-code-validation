@@ -6,13 +6,13 @@ standard [EVS 585:2007 Personal code. Structure](https://www.evs.ee/products/evs
 I created this package because I needed a validation that states it fallows an official standard.  
 I bought the standard from Estonian Centre for Standardisation and worked it through. 
 
-## Install 
+# Install 
 
 ````bash
 $ composer require raigu/personal-code-validation
 ````
 
-## Usage 
+# Usage 
 
 ```php
 use Raigu\PersonalCodeValidation;
@@ -27,7 +27,7 @@ if ($validation->valid()) {
 }
 ```
 
-## Command Line Interface
+# Command Line Interface
 
 ```bash
 $ php ./bin/validate.php
@@ -64,10 +64,10 @@ $ composer test
 composer coverage
 ```
 
-## Plans
+# Plans
 
 * extend the class `Raigu\PersonalCodeValidation` so it can also say why code is invalid
 
-## License
+# License
 
 Licensed under [MIT](LICENSE)
