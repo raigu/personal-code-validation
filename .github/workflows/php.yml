@@ -23,7 +23,7 @@ jobs:
     - name: Run tests
       run: composer run-script test
 
-    - name: Run code coverage
+    - name: Generate coverage report
       run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
     - name: Upload coverage to Codecov
