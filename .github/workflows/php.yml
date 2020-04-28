@@ -26,5 +26,7 @@ jobs:
     - name: Run code coverage
       run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
-    - name: Uploade coverage report
-      run: bash <(curl -s https://codecov.io/bash)
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage.xml
