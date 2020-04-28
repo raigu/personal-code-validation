@@ -20,5 +20,11 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest    
 
-    - name: Run test suite
+    - name: Run tests
       run: composer run-script test
+
+    - name: Run code coverage
+      run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+    - name: Uploade coverage report
+      run: bash <(curl -s https://codecov.io/bash)
