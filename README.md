@@ -2,6 +2,7 @@
 [![GitHub license](https://img.shields.io/github/license/raigu/personal-code-validation)](LICENSE.md)
 [![Total Downloads](https://poser.pugx.org/raigu/personal-code-validation/downloads)](https://packagist.org/packages/raigu/personal-code-validation)
 [![build](https://github.com/raigu/personal-code-validation/workflows/build/badge.svg)](https://github.com/raigu/personal-code-validation/actions?query=workflow%3Abuild)
+[![codecov](https://codecov.io/gh/raigu/personal-code-validation/branch/master/graph/badge.svg)](https://codecov.io/gh/raigu/personal-code-validation)
 
 # Estonian person identification code validation
 
