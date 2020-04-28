@@ -1,3 +1,5 @@
+[![GitHub license](https://img.shields.io/github/license/raigu/personal-code-validation)](LICENSE.md)
+
 # Estonian person identification code validation
 
 Validation of Estonian natural person identification code according to the 
