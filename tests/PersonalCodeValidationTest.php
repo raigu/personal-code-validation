@@ -9,18 +9,6 @@ final class PersonalCodeValidationTest extends TestCase
 
     /**
      * @test
-     */
-    public function constructed_from_string()
-    {
-        $sut = PersonalCodeValidation::create('47101010033');
-        $this->assertInstanceOf(
-            PersonalCodeValidation::class,
-            $sut
-        );
-    }
-
-    /**
-     * @test
      * @testdox Sample from standard EVS 585:2007 passes
      */
     public function sample_from_standard_passes()
@@ -89,10 +77,9 @@ final class PersonalCodeValidationTest extends TestCase
      */
     public function validates_birth_date(bool $expected, string $code)
     {
-        $sut = PersonalCodeValidation::create($code);
         $this->assertEquals(
             $expected,
-            $sut->validBirthDate()
+            is_valid_person_code($code)
         );
     }
 
@@ -113,9 +100,9 @@ final class PersonalCodeValidationTest extends TestCase
     public function sampleBirthDate()
     {
         return [
-            'Invalid date' => [false, '600000000006'],
-            'Valid date #1' => [true, '679123100009'],
-            'Valid date #2' => [true, '601010200006'],
+            'Invalid date' => [false, '60000000006'],
+            'Valid date #1' => [true, '67912310009'],
+            'Valid date #2' => [true, '60101020006'],
         ];
     }
 }
