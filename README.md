@@ -6,10 +6,12 @@
 
 # Estonian person identification code validation
 
-Validation of Estonian natural person identification code according to the 
+Validation of Estonian personal identification code according to the 
 standard [EVS 585:2007 Personal code. Structure](https://www.evs.ee/products/evs-585-2007).
 
-I created this package because I needed a validation that states it fallows an official standard.  
+# Motivation
+
+I needed a validation that states it fallows the official standard. 
 I bought the standard from Estonian Centre for Standardisation and worked it through. 
 
 # Install 
@@ -20,43 +22,30 @@ $ composer require raigu/personal-code-validation
 
 # Usage 
 
+Validation of personal code:
+
 ```php
-use Raigu\PersonalCodeValidation;
+require_once 'vendor/autoload.php';
 
-$validation = PersonalCodeValidation::create('47101010033');
-
-// Check validity
-if ($validation->valid()) {
-    echo 'Valid personal identification code';
+if (\Raigu\is_valid_personal_code('00000000000')) {
+    echo "Valid\n";
 } else {
-    echo 'Invalid personal identification code';  
+    echo "Invalid\n";
 }
 ```
 
-# Command Line Interface
+Calculation of personal code's control number:
 
-```bash
-$ php ./bin/validate.php
+```php
+echo \Raigu\personal_code_control_number('1234567890') . "\n";
+echo \Raigu\personal_code_control_number('12345678901') . "\n";
 ```
+will output:
 
-Will take codes from stdin and print out if it is valid or not.
-
-Example:
- 
-```bash
-$ echo 47101010033 | php ./bin/validate.php
-47101010033...OK
+```text
+2
+2
 ```
-
-You can validate codes in a file this way:
-
-```bash
-$ cat codes.txt | php ./bin/validate.php 
-00000000000...Invalid!
-47101010033...OK!
-```
-
-`codes.txt` must contain persona codes, one code per line.
 
 # Testing
 
@@ -69,10 +58,6 @@ $ composer test
 ```bash
 composer coverage
 ```
-
-# Plans
-
-* extend the class `Raigu\PersonalCodeValidation` so it can also say why code is invalid
 
 # License
 

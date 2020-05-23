@@ -6,83 +6,68 @@ use PHPUnit\Framework\TestCase;
 
 final class PersonalCodeValidationTest extends TestCase
 {
+
     /**
      * @test
+     * @testdox Sample from standard EVS 585:2007 passes
      */
-    public function stub()
+    public function sample_from_standard_passes()
     {
-        $sut = PersonalCodeValidation::stub();
-        $this->assertInstanceOf(
-            PersonalCodeValidation::class,
-            $sut
+        $this->assertTrue(
+            is_valid_personal_code('32708101201')
+        );
+    }
+
+    /**
+     * @test
+     * @testdox Sample from standard EVS 585:2007 having modulo 10 passes
+     */
+    public function sample_from_standard_having_modulo_10_passes() {
+        $this->assertTrue(
+            is_valid_personal_code('46304280206')
         );
     }
 
     /**
      * @test
      */
-    public function constructed_from_string()
+    public function empty_string_is_invalid()
     {
-        $sut = PersonalCodeValidation::create('47101010033');
-        $this->assertInstanceOf(
-            PersonalCodeValidation::class,
-            $sut
+        $this->assertFalse(
+            is_valid_personal_code('')
         );
     }
 
     /**
      * @test
      */
-    public function constructed_from_closure()
+    public function non_numeric_string_is_invalid()
     {
-        $regCode = '47101010033';
-        $sut = PersonalCodeValidation::fromClosure(function () use ($regCode) {
-            return $regCode;
-        });
-
-        $this->assertInstanceOf(
-            PersonalCodeValidation::class,
-            $sut
+        $this->assertFalse(
+            is_valid_personal_code('ABCDEFGHIJK')
         );
     }
 
     /**
      * @test
      */
-    public function valid()
+    public function code_with_invalid_control_number_is_invalid()
     {
-        $sut = PersonalCodeValidation::stub();
-        $this->assertIsBool(
-            $sut->valid()
+        $this->assertFalse(
+            is_valid_personal_code('47101010030')
         );
     }
 
     /**
      * @test
+     * @testdox Validates sex and centuries according to standard EVS 585:2007
+     * @dataProvider sampleSexAndCentury
      */
-    public function valid_regression()
+    public function validates_sex_and_centuries_according_standard(bool $expected, string $code)
     {
-        $this->assertValid('32708101201'); // Sample from standard EVS 585:2007
-        $this->assertValid('46304280206'); // Sample from standard EVS 585:2007, modulo == 10
-
-        $this->assertInvalid('');
-        $this->assertInvalid('ABCDEFGHIJK');
-        $this->assertInvalid('47101010030'); // invalid control number
-        $this->assertInvalid('12213008'); // valid company registry code
-
-        $this->assertValid('47101010033'); // value used in stub
-    }
-
-    /**
-     * @test
-     * @dataProvider sampleSexAndSentury
-     */
-    public function validSexAndCentury(bool $expected, string $code)
-    {
-        $sut = PersonalCodeValidation::create($code);
         $this->assertEquals(
             $expected,
-            $sut->validSexAndCentury()
+            is_valid_personal_code($code)
         );
     }
 
@@ -90,76 +75,34 @@ final class PersonalCodeValidationTest extends TestCase
      * @test
      * @dataProvider sampleBirthDate
      */
-    public function validateBirthDate(bool $expected, string $code)
+    public function validates_birth_date(bool $expected, string $code)
     {
-        $sut = PersonalCodeValidation::create($code);
         $this->assertEquals(
             $expected,
-            $sut->validBirthDate()
+            is_valid_personal_code($code)
         );
     }
 
-    /**
-     * @test
-     */
-    public function fakeTrue()
-    {
-        $sut = PersonalCodeValidation::fakeTrue();
-        $this->assertTrue(
-            $sut->valid()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function fakeFalse()
-    {
-        $sut = PersonalCodeValidation::fakeFalse();
-        $this->assertFalse(
-            $sut->valid()
-        );
-    }
-
-
-    private function assertValid($code)
-    {
-        $sut = PersonalCodeValidation::create($code);
-        $this->assertTrue(
-            $sut->valid(),
-            sprintf('%s is expected to be valid.', $code)
-        );
-    }
-
-    private function assertInvalid($code)
-    {
-        $sut = PersonalCodeValidation::create($code);
-        $this->assertFalse(
-            $sut->valid(),
-            sprintf('"%s" is expected to be invalid.', $code)
-        );
-    }
-
-    public function sampleSexAndSentury()
+    public function sampleSexAndCentury()
     {
         return [
-            'Invalid' => [false, '0000000000'],
-            'Male born on 19th century' => [true, '10000000000'],
-            'Female born on 19th century' => [true, '20000000000'],
-            'Male born on 20th century' => [true, '30000000000'],
-            'Female born on 20th century' => [true, '40000000000'],
-            'Male born on 21th century' => [true, '50000000000'],
-            'Female born on 21th century' => [true, '60000000000'],
-            'Invalid, first number bigger than mentioned in standard' => [false, '70000000000'],
+            'Invalid' => [false, '00101010004'],
+            'Male born on 19th century' => [true, '10101010005'],
+            'Female born on 19th century' => [true, '20101010006'],
+            'Male born on 20th century' => [true, '30101010007'],
+            'Female born on 20th century' => [true, '40101010008'],
+            'Male born on 21th century' => [true, '50101010009'],
+            'Female born on 21th century' => [true, '60101010006'],
+            'Invalid, first number bigger than mentioned in standard' => [false, '70101010000'],
         ];
     }
 
     public function sampleBirthDate()
     {
         return [
-            'Invalid date' => [false, '600000000000'],
-            'Valid date' => [true, '679123100000'],
-            'Valid date' => [true, '601010200000'],
+            'Invalid date' => [false, '60000000006'],
+            'Valid date #1' => [true, '67912310009'],
+            'Valid date #2' => [true, '60101020006'],
         ];
     }
 }
