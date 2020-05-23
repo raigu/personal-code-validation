@@ -51,6 +51,7 @@ if (!function_exists('Raigu\personal_code_control_number')) {
 
     function personal_code_control_number(string $code): int
     {
+        // @source https://www.evs.ee/en/evs-585-2007
         // @source https://et.wikipedia.org/wiki/Isikukood#Kontrollnumber
         // @source http://www.cs.tlu.ee/~inga/progbaas/Praktiline/isikukood.txt
         $sum = 0;
