@@ -33,31 +33,6 @@ if ($validation->valid()) {
 }
 ```
 
-# Command Line Interface
-
-```bash
-$ php ./bin/validate.php
-```
-
-Will take codes from stdin and print out if it is valid or not.
-
-Example:
- 
-```bash
-$ echo 47101010033 | php ./bin/validate.php
-47101010033...OK
-```
-
-You can validate codes in a file this way:
-
-```bash
-$ cat codes.txt | php ./bin/validate.php 
-00000000000...Invalid!
-47101010033...OK!
-```
-
-`codes.txt` must contain persona codes, one code per line.
-
 # Testing
 
 ```bash
