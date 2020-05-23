@@ -6,10 +6,12 @@
 
 # Estonian person identification code validation
 
-Validation of Estonian natural person identification code according to the 
+Validation of Estonian personal identification code according to the 
 standard [EVS 585:2007 Personal code. Structure](https://www.evs.ee/products/evs-585-2007).
 
-I created this package because I needed a validation that states it fallows an official standard.  
+# Motivation
+
+I needed a validation that states it fallows the official standard. 
 I bought the standard from Estonian Centre for Standardisation and worked it through. 
 
 # Install 
@@ -20,16 +22,14 @@ $ composer require raigu/personal-code-validation
 
 # Usage 
 
+
 ```php
-use Raigu\PersonalCodeValidation;
+require_once 'vendor/autoload.php';
 
-$validation = PersonalCodeValidation::create('47101010033');
-
-// Check validity
-if ($validation->valid()) {
-    echo 'Valid personal identification code';
+if (\Raigu\is_valid_personal_code('00000000000')) {
+    echo "Valid\n";
 } else {
-    echo 'Invalid personal identification code';  
+    echo "Invalid\n";
 }
 ```
 
@@ -44,10 +44,6 @@ $ composer test
 ```bash
 composer coverage
 ```
-
-# Plans
-
-* extend the class `Raigu\PersonalCodeValidation` so it can also say why code is invalid
 
 # License
 
