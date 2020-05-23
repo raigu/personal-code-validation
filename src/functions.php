@@ -7,7 +7,7 @@ function is_valid_person_code(string $code): bool
     return PersonalCodeValidation::create($code)->valid();
 }
 
-function person_code_check_num(string $code): int
+function person_code_control_number(string $code): int
 {
     // @source https://et.wikipedia.org/wiki/Isikukood#Kontrollnumber
     // @source http://www.cs.tlu.ee/~inga/progbaas/Praktiline/isikukood.txt
