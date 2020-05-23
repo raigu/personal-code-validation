@@ -2,7 +2,7 @@
 
 namespace Raigu;
 
-function is_valid_person_code(string $code): bool
+function is_valid_personal_code(string $code): bool
 {
     if (strlen($code) !== 11) {
         return false;
@@ -12,7 +12,7 @@ function is_valid_person_code(string $code): bool
         return false;
     }
 
-    if (person_code_control_number($code) !== intval($code[-1])) {
+    if (personal_code_control_number($code) !== intval($code[-1])) {
         return false;
     }
 
@@ -44,7 +44,7 @@ function is_valid_person_code(string $code): bool
     return true;
 }
 
-function person_code_control_number(string $code): int
+function personal_code_control_number(string $code): int
 {
     // @source https://et.wikipedia.org/wiki/Isikukood#Kontrollnumber
     // @source http://www.cs.tlu.ee/~inga/progbaas/Praktiline/isikukood.txt

@@ -14,7 +14,7 @@ final class PersonalCodeValidationTest extends TestCase
     public function sample_from_standard_passes()
     {
         $this->assertTrue(
-            is_valid_person_code('32708101201')
+            is_valid_personal_code('32708101201')
         );
     }
 
@@ -24,7 +24,7 @@ final class PersonalCodeValidationTest extends TestCase
      */
     public function sample_from_standard_having_modulo_10_passes() {
         $this->assertTrue(
-            is_valid_person_code('46304280206')
+            is_valid_personal_code('46304280206')
         );
     }
 
@@ -34,7 +34,7 @@ final class PersonalCodeValidationTest extends TestCase
     public function empty_string_is_invalid()
     {
         $this->assertFalse(
-            is_valid_person_code('')
+            is_valid_personal_code('')
         );
     }
 
@@ -44,7 +44,7 @@ final class PersonalCodeValidationTest extends TestCase
     public function non_numeric_string_is_invalid()
     {
         $this->assertFalse(
-            is_valid_person_code('ABCDEFGHIJK')
+            is_valid_personal_code('ABCDEFGHIJK')
         );
     }
 
@@ -54,7 +54,7 @@ final class PersonalCodeValidationTest extends TestCase
     public function code_with_invalid_control_number_is_invalid()
     {
         $this->assertFalse(
-            is_valid_person_code('47101010030')
+            is_valid_personal_code('47101010030')
         );
     }
 
@@ -67,7 +67,7 @@ final class PersonalCodeValidationTest extends TestCase
     {
         $this->assertEquals(
             $expected,
-            is_valid_person_code($code)
+            is_valid_personal_code($code)
         );
     }
 
@@ -79,7 +79,7 @@ final class PersonalCodeValidationTest extends TestCase
     {
         $this->assertEquals(
             $expected,
-            is_valid_person_code($code)
+            is_valid_personal_code($code)
         );
     }
 
