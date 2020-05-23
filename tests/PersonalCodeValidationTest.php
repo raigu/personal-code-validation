@@ -6,17 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 final class PersonalCodeValidationTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function stub()
-    {
-        $sut = PersonalCodeValidation::stub();
-        $this->assertInstanceOf(
-            PersonalCodeValidation::class,
-            $sut
-        );
-    }
 
     /**
      * @test
@@ -27,33 +16,6 @@ final class PersonalCodeValidationTest extends TestCase
         $this->assertInstanceOf(
             PersonalCodeValidation::class,
             $sut
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function constructed_from_closure()
-    {
-        $regCode = '47101010033';
-        $sut = PersonalCodeValidation::fromClosure(function () use ($regCode) {
-            return $regCode;
-        });
-
-        $this->assertInstanceOf(
-            PersonalCodeValidation::class,
-            $sut
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function valid()
-    {
-        $sut = PersonalCodeValidation::stub();
-        $this->assertIsBool(
-            $sut->valid()
         );
     }
 
@@ -131,28 +93,6 @@ final class PersonalCodeValidationTest extends TestCase
         $this->assertEquals(
             $expected,
             $sut->validBirthDate()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function fakeTrue()
-    {
-        $sut = PersonalCodeValidation::fakeTrue();
-        $this->assertTrue(
-            $sut->valid()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function fakeFalse()
-    {
-        $sut = PersonalCodeValidation::fakeFalse();
-        $this->assertFalse(
-            $sut->valid()
         );
     }
 

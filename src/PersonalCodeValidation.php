@@ -98,29 +98,9 @@ final class PersonalCodeValidation
         return checkdate($month, $day, $year);
     }
 
-    public static function stub(): self
-    {
-        return self::create('47101010033');
-    }
-
-    public static function fakeTrue(): self
-    {
-        return self::create('47101010033');
-    }
-
-    public static function fakeFalse(): self
-    {
-        return self::create('00000000000');
-    }
-
-    public static function fromClosure(Closure $closure): self
-    {
-        return new self($closure);
-    }
-
     public static function create(string $code): self
     {
-        return self::fromClosure(function () use ($code) {
+        return new self(function () use ($code) {
             return $code;
         });
     }
