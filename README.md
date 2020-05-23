@@ -22,6 +22,7 @@ $ composer require raigu/personal-code-validation
 
 # Usage 
 
+Validation of personal code:
 
 ```php
 require_once 'vendor/autoload.php';
@@ -31,6 +32,19 @@ if (\Raigu\is_valid_personal_code('00000000000')) {
 } else {
     echo "Invalid\n";
 }
+```
+
+Calculation of personal code's control number:
+
+```php
+echo \Raigu\personal_code_control_number('1234567890') . "\n";
+echo \Raigu\personal_code_control_number('12345678901') . "\n";
+```
+will output:
+
+```text
+2
+2
 ```
 
 # Testing
