@@ -14,7 +14,7 @@ if (!function_exists('Raigu\is_valid_personal_code')) {
             return false;
         }
 
-        if (personal_code_control_number($code) !== intval($code[-1])) {
+        if (personal_code_control_number($code) !== intval(substr($code, -1))) {
             return false;
         }
 
