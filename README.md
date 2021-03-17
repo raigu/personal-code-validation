@@ -8,6 +8,10 @@
 Validation of Estonian personal identification code according to the 
 standard [EVS 585:2007 Personal code. Structure](https://www.evs.ee/products/evs-585-2007).
 
+# Compatibility
+
+PHP 7.0, 7.1, 7.2, 7.3, 7.4
+
 # Motivation
 
 I needed a validation that states it fallows the official standard. I bought the standard from Estonian Centre for Standardisation and worked it through. 
