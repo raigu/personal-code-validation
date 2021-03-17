@@ -2,7 +2,6 @@
 [![GitHub license](https://img.shields.io/github/license/raigu/personal-code-validation)](LICENSE.md)
 [![Total Downloads](https://poser.pugx.org/raigu/personal-code-validation/downloads)](https://packagist.org/packages/raigu/personal-code-validation)
 [![build](https://github.com/raigu/personal-code-validation/workflows/build/badge.svg)](https://github.com/raigu/personal-code-validation/actions?query=workflow%3Abuild)
-[![codecov](https://codecov.io/gh/raigu/personal-code-validation/branch/master/graph/badge.svg)](https://codecov.io/gh/raigu/personal-code-validation)
 
 # Estonian person identification code validation
 
@@ -11,8 +10,9 @@ standard [EVS 585:2007 Personal code. Structure](https://www.evs.ee/products/evs
 
 # Motivation
 
-I needed a validation that states it fallows the official standard. 
-I bought the standard from Estonian Centre for Standardisation and worked it through. 
+I needed a validation that states it fallows the official standard. I bought the standard from Estonian Centre for Standardisation and worked it through. 
+
+I needed a package with long time support. It has no other dependencies and is tested against all supported PHP versions in [GitHub Acition](https://github.com/raigu/personal-code-validation/actions).
 
 # Install 
 
@@ -51,12 +51,6 @@ will output:
 
 ```bash
 $ composer test
-```
-
-# Code coverage
-
-```bash
-composer coverage
 ```
 
 # License
