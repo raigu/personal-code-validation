@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.0.0] - 2020-05-23
 ### Changed
-- Interface harmonized with package raigu/company-registr-code-validation.  
+- Interface harmonized with package raigu/company-registry-code-validation.  
   If used in same project then less cognitive friction.
 
 ## [1.0.1] - 20220-04-22
