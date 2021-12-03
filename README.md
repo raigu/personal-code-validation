@@ -16,7 +16,7 @@ PHP 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1
 
 I needed a validation that states it fallows the official standard. I bought the standard from Estonian Centre for Standardisation and worked it through. 
 
-I needed a package with long time support. It has no other dependencies and is tested against all supported PHP versions in [GitHub Acition](https://github.com/raigu/personal-code-validation/actions).
+I needed a package with long time support. It has no other dependencies and is tested against all supported PHP versions in [GitHub Action](https://github.com/raigu/personal-code-validation/actions).
 
 # Install 
 
