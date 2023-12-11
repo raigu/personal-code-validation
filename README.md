@@ -10,7 +10,7 @@ standard [EVS 585:2007 Personal code. Structure](https://www.evs.ee/products/evs
 
 # Compatibility
 
-PHP 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2
+PHP 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3
 
 # Motivation
 
